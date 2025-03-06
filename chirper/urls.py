@@ -10,6 +10,4 @@ urlpatterns = [
     path('accounts/profile/', profile, name='profile'),
     path("comment/<int:chirp_id>/", add_comment, name="add_comment"),
     path('like/<int:chirp_id>/', like_chirp, name='like_chirp'),
-
-
 ]

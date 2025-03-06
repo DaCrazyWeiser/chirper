@@ -32,19 +32,14 @@ def add_comment(request, chirp_id):
     return redirect('home')  # Redirect back to homepage (or chirp detail page)
 
 def like_chirp(request, chirp_id):
-    chirp = get_object_or_404(Chirp, id=chirp_id)
-
-    if request.user in chirp.likes.all():
-        chirp.likes.remove(request.user)
-        liked = False
-    else:
-        chirp.likes.add(request.user)
-        liked = True
-
-    return JsonResponse({
-        'likes': chirp.like_count(),
-        'liked': liked
-    })
+    if request.method == 'POST':
+        chirp = get_object_or_404(Chirp, id=chirp_id)
+        if request.user in chirp.likes.all():
+            chirp.likes.remove(request.user)
+        else:
+            chirp.likes.add(request.user)
+        return redirect('home')
+    return redirect('home')
 
 def about(request):
     return render(request, 'about.html')  # This renders the about.html template
