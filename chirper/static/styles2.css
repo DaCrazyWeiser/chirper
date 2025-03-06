@@ -12,8 +12,11 @@
 
 body {
   font-family: sans-serif;
-  background-color: var(--color-black);
+  color: white;
+}
 
+p {
+  color: black; 
 }
 
 /*___________________________________________________*/

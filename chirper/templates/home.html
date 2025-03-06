@@ -61,12 +61,12 @@
                 {% if not chirp.parent %}  <!-- Show only top-level chirps -->
                     <div class="posted">
                         <div class="post-header">
-                            <span class="post-user">{{ chirp.user.username }}</span>
-                            <span class="post-time">{{ chirp.created_at|date:"F j, Y" }}</span>
+                            <span class="post-user"><p>{{ chirp.user.username }}</p></span>
+                            <span class="post-time"><p>{{ chirp.created_at|date:"F j, Y" }}</p></span>
                             <button type="submit" class="comment-button">Like Chirp</button>
                         </div>
                         <div class="post-content">
-                            {{ chirp.content }}
+                            <p>{{ chirp.content }}</p>
                         </div>
 
                         <!-- Commenting Section -->
@@ -93,8 +93,8 @@
                                 {% for comment in chirp.replies.all %}
                                     {% if comment.parent == chirp %}  <!-- Show only replies (comments) -->
                                         <div class="comment">
-                                            <span class="comment-user">{{ comment.user.username }}</span>
-                                            <span class="comment-time">{{ comment.created_at|date:"F j, Y" }}</span>
+                                            <span class="comment-user"><p>{{ comment.user.username }}</p></span>
+                                            <span class="comment-time"><p>{{ comment.created_at|date:"F j, Y" }}</p></span>
                                             <p>{{ comment.content }}</p>
                                         </div>
                                     {% endif %}
