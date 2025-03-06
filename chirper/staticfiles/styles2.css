@@ -122,13 +122,19 @@ label:hover {
   margin-bottom: 10px;
 }
 
+.comment-top {
+  display: flex;
+}
+
 .comment-user {
   font-weight: bold;
   color: #333;
   margin-right: 10px;
+  align-items: top;
 }
 
 .comment-time {
+  align-items: top;
   color: #666;
   font-size: 0.9em;
 }
@@ -241,3 +247,7 @@ button:hover {
   background-color: var(--color-black);
 }
 
+.dropdown {
+  width: 80%;
+  margin: 0px auto 0px auto;
+}

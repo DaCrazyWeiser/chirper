@@ -101,9 +101,11 @@
                                 {% for comment in chirp.replies.all %}
                                     {% if comment.parent == chirp %}  <!-- Show only replies (comments) -->
                                         <div class="comment">
-                                            <span class="comment-user"><p>{{ comment.user.username }}</p></span>
-                                            <span class="comment-time"><p>{{ comment.created_at|date:"F j, Y" }}</p></span>
-                                            <span class="comment-like"><p>{{ comment.user.like}}</p></span>
+                                            <div class="comment-top">
+                                                <span class="comment-user"><p>{{ comment.user.username }}</p></span>
+                                                <span class="comment-time"><p>{{ comment.created_at|date:"F j, Y" }}</p></span>
+                                                <span class="comment-like"><p>{{ comment.user.like}}</p></span>
+                                            </div>
                                             <p>{{ comment.content }}</p>
                                         </div>
                                     {% endif %}
