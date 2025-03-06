@@ -31,9 +31,11 @@ def add_comment(request, chirp_id):
             Chirp.objects.create(user=request.user, content=content, parent=chirp)  # Save as reply
     return redirect('home')  # Redirect back to homepage (or chirp detail page)
 
+@login_required
 def like_chirp(request, chirp_id):
+    chirp = get_object_or_404(Chirp, id=chirp_id)
+
     if request.method == 'POST':
-        chirp = get_object_or_404(Chirp, id=chirp_id)
         if request.user in chirp.likes.all():
             chirp.likes.remove(request.user)
         else:
