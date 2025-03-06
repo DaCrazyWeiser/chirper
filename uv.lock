@@ -17,12 +17,16 @@ source = { virtual = "." }
 dependencies = [
     { name = "django" },
     { name = "django-allauth" },
+    { name = "django-bootstrap5" },
+    { name = "pillow" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "django", specifier = ">=5.1.6" },
     { name = "django-allauth", specifier = ">=65.4.0" },
+    { name = "django-bootstrap5", specifier = ">=25.1" },
+    { name = "pillow", specifier = ">=11.1.0" },
 ]
 
 [[package]]

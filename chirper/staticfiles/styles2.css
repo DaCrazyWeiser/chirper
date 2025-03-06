@@ -1,0 +1,243 @@
+:root {
+  --color-primary: #0073ff;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-black-1: #212b38;
+  --color-gray: gray;
+}
+
+* {
+  /*
+  margin: 0;
+  padding: 0;  */
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: var(--color-black);
+  cursor: pointer;
+}
+
+/*_________________________________________________*/
+/*
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+*/
+
+label:hover {
+  cursor: pointer;
+  background-color: #0056b3;
+
+}
+
+.post {
+  width: 70%; 
+  padding: 30px 10px 40px 10px;               
+  margin: 100px auto 10px auto; 
+  border-radius: 10px;
+  border: 3px solid var(--color-black);
+}
+
+.post-form {
+  width: 40%; 
+  padding: 30px 10px 40px 10px;               
+  margin: 100px auto 10px auto; 
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: vertical;
+
+}
+
+.posted {
+  width: 70%; 
+  padding: 30px 10px 40px 10px;               
+  margin: 100px auto 10px auto; 
+  border-radius: 10px;
+  border: 3px solid var(--color-black);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.post-user {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.post-time {
+  color: #666;
+  font-size: 0.9em;
+  padding-right: 8px;
+}
+
+.post-content {
+  margin-bottom: 15px;
+}
+
+.comment-section {
+  width: 70%;
+  margin: 20px auto 10px auto;
+}
+
+.comment-form {
+  margin-bottom: 20px;
+}
+
+.comment-input {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  resize: vertical;
+}
+
+
+.comment-button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.comment-button:hover {
+  background-color: #0056b3;
+}
+
+.comment {
+  background-color: #fff;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.comment-user {
+  font-weight: bold;
+  color: #333;
+  margin-right: 10px;
+}
+
+.comment-time {
+  color: #666;
+  font-size: 0.9em;
+}
+
+
+
+/*___________________________________________________*/
+
+
+.logo {
+  color: var(--color-black);
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+.logo span {
+  color: var(--color-white);
+}
+
+.menu-bar {
+  background-color: var(--color-black);
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2%;
+
+  position: relative;
+}
+
+button {
+  font-size: 18px;
+  padding: 14px 40px;
+  background-color: rgba(0, 139, 169, 1);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+button:hover {
+      background-color: rgba(0, 139, 169, 0.8);
+}
+
+.menu-bar ul {
+  list-style: none;
+  display: flex;
+}
+
+.menu-bar ul li {
+  width: 140px;
+  padding: 10px 30px;
+  text-align: center;
+
+  position: relative;
+}
+
+.menu-bar ul li a {
+  font-size: 20px;
+  color: var(--color-white);
+  text-decoration: none;
+
+  transition: all 0.3s;
+}
+
+.menu-bar ul li a:hover {
+  color: var(--color-gray);
+}
+
+.fas {
+  float: right;
+  margin-left: 10px;
+  padding-top: 3px;
+}
+
+/* dropdown menu style */
+.dropdown-menu {
+  display: none;
+}
+
+.menu-bar ul li:hover .dropdown-menu {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background-color: var(--color-black);
+}
+
+.menu-bar ul li:hover .dropdown-menu ul {
+  display: block;
+  margin: 10px;
+}
+
+.menu-bar ul li:hover .dropdown-menu ul li {
+  width: 150px;
+  padding: 10px;
+}
+
+.dropdown-menu-1 {
+  display: none;
+}
+
+.dropdown-menu ul li:hover .dropdown-menu-1 {
+  display: block;
+  position: absolute;
+  left: 150px;
+  top: 0;
+  background-color: var(--color-black);
+}
+
