@@ -38,6 +38,8 @@ class Chirp(models.Model):
         """
         return f"{self.user.username}: {self.content[:50]}"
 
+    def like_count(self):
+        return self.likes.count()  # Returns total likes
 
 class Follow(models.Model):
     """

@@ -8,21 +8,6 @@ from chirper import forms
 def profile_view(request):
     return render(request, 'profile.html', {'user': request.user}),
 
-# Saves the chirp if it is entered as a POST request; empty forms are returned as a GET.
-# def home(request):
-#     if request.method == "POST":
-#         form = forms.ChirpForm(request.POST)
-#         if form.is_valid():
-#             chirp = form.save(commit=False) # Don't save it yet
-#             chirp.user = request.user       # Assign the logged in user
-#             chirp.save()
-#             return redirect("home")
-
-#     else:
-#         form = forms.ChirpForm()
-
-#         return render(request, 'home.html', {"form": form})  # This renders the home.html template
-
 @login_required
 def home(request):
     if request.method == "POST":

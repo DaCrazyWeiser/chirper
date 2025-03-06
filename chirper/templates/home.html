@@ -62,8 +62,16 @@
                     <div class="posted">
                         <div class="post-header">
                             <span class="post-user"><p>{{ chirp.user.username }}</p></span>
-                            <span class="post-time"><p>{{ chirp.created_at|date:"F j, Y" }}</p></span>
-                            <button type="submit" class="comment-button">Like Chirp</button>
+                            <span class="post-time">{{ chirp.created_at|date:"F j, Y" }}</span>
+                            <button type="button" class="comment-button like-button" data-chirp-id="{{ chirp.id }}">
+                                {% if request.user in chirp.likes.all %}
+                                    Unlike Chirp
+                                {% else %}
+                                    Like Chirp
+                                {% endif %}
+                            </button>                            
+                            <span class="comment-like">Likes: <span id="like-count-{{ chirp.id }}">{{ chirp.likes.count }}</span></span>
+
                         </div>
                         <div class="post-content">
                             <p>{{ chirp.content }}</p>
@@ -95,6 +103,7 @@
                                         <div class="comment">
                                             <span class="comment-user"><p>{{ comment.user.username }}</p></span>
                                             <span class="comment-time"><p>{{ comment.created_at|date:"F j, Y" }}</p></span>
+                                            <span class="comment-like"><p>{{ comment.user.like}}</p></span>
                                             <p>{{ comment.content }}</p>
                                         </div>
                                     {% endif %}
