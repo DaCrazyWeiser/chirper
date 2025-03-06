@@ -63,6 +63,7 @@
                         <div class="post-header">
                             <span class="post-user"><p>{{ chirp.user.username }}</p></span>
                             <span class="post-time"><p>{{ chirp.created_at|date:"F j, Y" }}</p></span>
+<<<<<<< Updated upstream
                             <button type="submit" class="comment-button like-button" data-chirp-id="{{ chirp.id }}">
                                 {% if request.user in chirp.likes.all %}
                                     Unlike Chirp
@@ -70,8 +71,19 @@
                                     Like Chirp
                                 {% endif %}
                             </button>                            
+=======
+                            <form method="POST" action="{% url 'like_chirp' chirp.id %}" style="display: inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="comment-button like-button">
+                                    {% if request.user in chirp.likes.all %}
+                                        Unlike Chirp
+                                    {% else %}
+                                        Like Chirp
+                                    {% endif %}
+                                </button>
+                            </form>
+>>>>>>> Stashed changes
                             <span class="comment-like">Likes: <span id="like-count-{{ chirp.id }}">{{ chirp.likes.count }}</span></span>
-
                         </div>
                         <div class="post-content">
                             <p>{{ chirp.content }}</p>
