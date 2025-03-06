@@ -5,46 +5,46 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
         {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">        
-        <link rel="stylesheet" type="text/css" href="{% static 'profile.css' %}">
+        <link rel="stylesheet"  href="{% static 'styles2.css' %}">        
+        <link rel="stylesheet" href="{% static 'profile.css' %}">
         <title>Chirper</title>
     </head>
 
     <body>
         <div class="menu-bar">
-            <a href="/home.html">
+            <a href='{% url "home" %}'>
                 {% load static %}
                 <img class="logo" src="{% static 'logo.png' %}" alt="logo" height="50px" width="75px">
             </a>
             <ul>
-                <li><a href="/search.html">Search</a></li>
-                <li><a href="/about.html">About</a></li>
+                 <!-- <li><a href="/search.html">Search</a></li>   -->
+                <li><a href='{% url "about" %}'>About</a></li>
                 <li><a>Settings<i class="fas fa-caret-down"></i></a>
 
                     <div class="dropdown-menu">
                         <ul>
-                            <li><a href='/accounts/profile'>profile</a></li>
-                            <li><a href="/accounts/logout/">Log Out</a></li>
+                            <li><a href='{% url "profile" %}'>profile</a></li>
+                            <li><a href='{% url "account_logout" %}'>Log Out</a></li>
                         </ul>
                     </div>
                 </li>
                 
             </ul>
-            <a class="cta" href="/accounts/login/"><button>SignIn</button></a>
+            <a class="cta" href='{% url "account_login" %}'><button>SignIn</button></a>
         </div>
 
         <div class="card">
-            <img src="img.jpg" alt="John" style="width:100%">
+            <!-- <img src="img.jpg" alt="John" style="width:100%">    -->
             <h1>John Doe</h1>
-            <p class="title">CEO & Founder, Example</p>
-            <p>Harvard University</p>
-            <a href="#"><i class="fa fa-dribbble"></i></a>
+            <p class="title">Follow</p>
+            <p>Chirps</p>
+            <!-- <a href="#"><i class="fa fa-dribbble"></i></a>
             <a href="#"><i class="fa fa-twitter"></i></a>
             <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <p href="../accounts/logout/"><button>Log Out</button></p>
+            <a href="#"><i class="fa fa-facebook"></i></a> 
+            <p class="cta" href="logout/"><button>Log Out</button></p> -->
           </div>
     </body>
 </html>

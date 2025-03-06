@@ -5,31 +5,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
         {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">        
+        <link rel="stylesheet" href="{% static 'styles2.css' %}"/>        
         <title>Chirper</title>
     </head>
 
     <body>
         <div class="menu-bar">
-            <a href="home.html">
+            <a href='{% url "home" %}'>
                 {% load static %}
                 <img class="logo" src="{% static 'logo.png' %}" alt="logo" height="50px" width="75px">
             </a>
             <ul>
-                <li><a href="search.html">Search</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a>Settings <i class="fas fa-caret-down"></i></a>
+                 <!-- <li><a href="/search.html">Search</a></li>   -->
+                <li><a href='{% url "about" %}'>About</a></li>
+                <li><a>Settings<i class="fas fa-caret-down"></i></a>
 
                     <div class="dropdown-menu">
                         <ul>
-                            <li><a href='accounts/profile/'>Profile</a></li>
-                            <li><a href="accounts/logout/">Log Out</a></li>
+                            <li><a href='{% url "profile" %}'>profile</a></li>
+                            <li><a href='{% url "account_logout" %}'>Log Out</a></li>
                         </ul>
                     </div>
                 </li>
                 
             </ul>
-            <a class="cta" href="accounts/login/"><button>SignIn</button></a>
+            <a class="cta" href='{% url "account_login" %}'><button>SignIn</button></a>
         </div>
         <h3>Who We Are</h3>
     </body>

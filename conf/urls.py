@@ -16,11 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from chirper.views import profile_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('chirper.urls')),  # Include app URLs
-    path('profile/', profile_view, name='profile'),  # Custom profile URL
     path('accounts/', include('allauth.urls')),
 ]

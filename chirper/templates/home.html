@@ -5,38 +5,39 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
         {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+        <link rel="stylesheet" href="{% static 'styles2.css' %}">
             <!-- 
             To compile and run any img and css file,
             throw it in the 'static' file, NOT 'staticfiles'
             run 'python manage.py collectstatic'
             then run the server. 'python manage.py runserver'
             -->
-        <link
+
         <title>Chirper</title>
     </head>
 
     <body>
+        <!-- Nav bar section.-->
         <div class="menu-bar">
-            <a href="home.html">
+            <a href='{% url "home" %}'>
                 {% load static %}
                 <img class="logo" src="{% static 'logo.png' %}" alt="logo" height="50px" width="75px">
             </a>
             <ul>
-                <li><a href="search.html">Search</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a>Settings <i class="fas fa-caret-down"></i></a>
+                 <!-- <li><a href="/search.html">Search</a></li>   -->
+                <li><a href='{% url "about" %}'>About</a></li>
+                <li><a>Settings<i class="fas fa-caret-down"></i></a>
 
                     <div class="dropdown-menu">
                         <ul>
-                            <li><a href='accounts/profile/'>Profile</a></li>
-                            <li><a href="accounts/logout/">Log Out</a></li>
+                            <li><a href='{% url "profile" %}'>profile</a></li>
+                            <li><a href='{% url "account_logout" %}'>Log Out</a></li>
                         </ul>
                     </div>
                 </li>
                 
             </ul>
-            <a class="cta" href="accounts/login/"><button>SignIn</button></a>
+            <a class="cta" href='{% url "account_login" %}'><button>SignIn</button></a>
         </div>
 
 
@@ -44,9 +45,64 @@
             <form class="form" autocomplete="off">
                 <!-- Text -->
                 <label for="text">Chirp</label>
-                <input type="text" id="text" name="text" placeholder="255 Character Max." />
+                <input type="text" id="text" name="text" placeholder="250 word Max." />
                 <small>0 Comment(s).</small>
             </form>
-        </section>
+        </div>
+
+
+
+
+        <!-- Posted chirps Section -->
+        <div class="container">
+            <div class="posted">
+                <div class="post-header">
+                    <span class="post-user">JohnDoe</span>
+                    <span class="post-time">Posted on March 4, 2025</span>
+                </div>
+                <div class="post-content">
+                    This is a sample post content. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!--Commenting Section-->
+        <p class="p-comment-section">
+            <label for="dropdown-toggle" class="selectable p-comment">Comment(s)</label>
+        </p>
+    
+        <!-- Hidden checkbox to control the dropdown visibility -->
+        <input type="checkbox" id="dropdown-toggle" class="toggle-checkbox">
+    
+        <!-- Dropdown comment section -->
+        <div class="dropdown">
+            <!-- Comment Section -->
+            <div class="comment-section">
+                <!-- Comment Form -->
+                <form class="comment-form">
+                    <textarea class="comment-input" placeholder="Write a comment..." rows="3"></textarea>
+                    <button type="submit" class="comment-button">Post Comment</button>
+                </form>
+    
+                <!-- Sample Comments -->
+                <div class="comment">
+                    <span class="comment-user">JaneSmith</span>
+                    <span class="comment-time">March 4, 2025</span>
+                    <p>Great post! I really enjoyed reading it.</p>
+                </div>
+    
+                <div class="comment">
+                    <span class="comment-user">Mike123</span>
+                    <span class="comment-time">March 4, 2025</span>
+                    <p>Interesting thoughts. I have a different perspective though.</p>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
+
+
+

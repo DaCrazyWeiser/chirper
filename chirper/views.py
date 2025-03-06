@@ -33,3 +33,4 @@ def search(request):
 def profile(request):
     form = forms.Profile()
     return render(request, 'profile.html', {"form": form})  # This renders the profile.html template
+
