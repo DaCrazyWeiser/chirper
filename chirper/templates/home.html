@@ -46,66 +46,69 @@
 
         <!-- to post a chirp section-->
         <div class="post">
-            <form class="post-form">
-                <textarea class="post-form" placeholder="Write a Chirp..." rows="3"></textarea>
+            <form class="post-form" method="POST" action="{% url 'home' %}">
+                {% csrf_token %}
+                <textarea name="content" class="post-form" placeholder="Write a Chirp..." rows="3"></textarea>
                 <button type="submit" class="comment-button">Post Chirp</button>
             </form>
         </div>
 
-
-
+        
 
         <!-- Posted chirps Section -->
         <div class="container">
-            <div class="posted">
-                <div class="post-header">
-                    <span class="post-user">JohnDoe</span>
-                    <span class="post-time">Posted on March 4, 2025</span>
-                    <button type="submit" class="comment-button">Like Chirp</button>
-                </div>
-                <div class="post-content">
-                    This is a sample post content. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-                </div>
-            </div>
+            {% for chirp in chirps %}        
+                {% if not chirp.parent %}  <!-- Show only top-level chirps -->
+                    <div class="posted">
+                        <div class="post-header">
+                            <span class="post-user">{{ chirp.user.username }}</span>
+                            <span class="post-time">{{ chirp.created_at|date:"F j, Y" }}</span>
+                            <button type="submit" class="comment-button">Like Chirp</button>
+                        </div>
+                        <div class="post-content">
+                            {{ chirp.content }}
+                        </div>
+
+                        <!-- Commenting Section -->
+                        <p class="p-comment-section">
+                            <label for="dropdown-toggle-{{ chirp.id }}" class="selectable p-comment">Comment(s)</label>
+                        </p>
+
+                        <!-- Hidden checkbox to control the dropdown visibility -->
+                        <input type="checkbox" id="dropdown-toggle-{{ chirp.id }}" class="toggle-checkbox">
+
+                        <!-- Dropdown comment section -->
+                        <div class="dropdown">
+                            <!-- Comment Form -->
+                            <form class="comment-form" method="POST" action="{% url 'home' %}">
+                                {% csrf_token %}
+                                <textarea name="content" class="comment-input" placeholder="Write a comment..." rows="3"></textarea>
+                                <button type="submit" class="comment-button">Post Comment</button>
+                            </form>
+
+                            <!-- Display Comments -->
+                            <div class="comment-section">
+                                {% for comment in chirps %}
+                                    {% if comment.parent == chirp %}  <!-- Show only replies (comments) -->
+                                        <div class="comment">
+                                            <span class="comment-user">{{ comment.user.username }}</span>
+                                            <span class="comment-time">{{ comment.created_at|date:"F j, Y" }}</span>
+                                            <p>{{ comment.content }}</p>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% empty %}
+                <p class="p-comment-section">No chirps available.</p>
+            {% endfor %}
         </div>
 
 
 
 
-        <!--Commenting Section-->
-        <p class="p-comment-section">
-            <label for="dropdown-toggle" class="selectable p-comment">Comment(s)</label>
-        </p>
-    
-        <!-- Hidden checkbox to control the dropdown visibility -->
-        <input type="checkbox" id="dropdown-toggle" class="toggle-checkbox">
-    
-        <!-- Dropdown comment section -->
-        <div class="dropdown">
-            <!-- Comment Section -->
-            <div class="comment-section">
-                <!-- Comment Form -->
-                <form class="comment-form">
-                    <textarea class="comment-input" placeholder="Write a comment..." rows="3"></textarea>
-                    <button type="submit" class="comment-button">Post Comment</button>
-                </form>
-    
-                <!-- Sample Comments -->
-                <div class="comment">
-                    <span class="comment-user">JaneSmith</span>
-                    <span class="comment-time">March 4, 2025</span>
-                    <p>Great post! I really enjoyed reading it.</p>
-                </div>
-    
-                <div class="comment">
-                    <span class="comment-user">Mike123</span>
-                    <span class="comment-time">March 4, 2025</span>
-                    <p>Interesting thoughts. I have a different perspective though.</p>
-                </div>
-            </div>
-        </div>
+
     </body>
 </html>
-
-
-

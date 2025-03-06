@@ -36,15 +36,21 @@
         </div>
 
         <div class="card">
-            <!-- <img src="img.jpg" alt="John" style="width:100%">    -->
-            <h1>John Doe</h1>
+            <h1>Welcome, {{ user.username }} !</h1>  <!-- Shows the logged-in user's username -->
+
+            <p>Email: {{ user.email }}</p>  <!-- If you want to show the user's email -->
+          
+            <!--<p>Bio: {{ user_profile.bio }}</p>   Display bio from Profile model         
+            <img src="img.jpg" alt="John" style="width:100%">
+            <h1>{{ chirp.user.username }}</h1>
             <p class="title">Follow</p>
             <p>Chirps</p>
-            <!-- <a href="#"><i class="fa fa-dribbble"></i></a>
+            <a href="#"><i class="fa fa-dribbble"></i></a>
             <a href="#"><i class="fa fa-twitter"></i></a>
             <a href="#"><i class="fa fa-linkedin"></i></a>
             <a href="#"><i class="fa fa-facebook"></i></a> 
             <p class="cta" href="logout/"><button>Log Out</button></p> -->
           </div>
+
     </body>
 </html>

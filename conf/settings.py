@@ -139,10 +139,10 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-LOGIN_REDIRECT_ULR = ("/")
-ACCOUNT_LOGOUT_REDIRECT_URL = ("login/")
-ACCOUNT_SIGNUP_REDIRECT_URL = ("chirper:home")
+LOGIN_REDIRECT_ULR = reverse_lazy("chirper:home")
+# ACCOUNT_LOGOUT_REDIRECT_URL = (" ")
+ACCOUNT_SIGNUP_REDIRECT_URL = reverse_lazy("chirper:home")
 # ACCOUNT_PROFILE_URL = '/profile'
 
-ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_LOGIN_METHODS = {'email'}
 ACCOUNT_EMAIL_REQUIRED = True
