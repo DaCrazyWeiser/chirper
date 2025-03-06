@@ -8,7 +8,7 @@ This project is a Social media messaging app similar to Twitter. On our app you 
 6. create a unique profile
 
 # USAGE
-1. Download our code and install the following dependecies: Pillow
+1. Download our code and run uv sync.
 2. run the server using: `python manage.py runserver` or if running on a virutal enviorment you may need to run `uv run python manage.py runserver`
 3. go to http://127.0.0.1:8000/
 4. Chirp away
