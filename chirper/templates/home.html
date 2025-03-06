@@ -62,7 +62,7 @@
                     <div class="posted">
                         <div class="post-header">
                             <span class="post-user"><p>{{ chirp.user.username }}</p></span>
-                            <span class="post-time">{{ chirp.created_at|date:"F j, Y" }}</span>
+                            <span class="post-time"><p>{{ chirp.created_at|date:"F j, Y" }}</p></span>
                             <button type="button" class="comment-button like-button" data-chirp-id="{{ chirp.id }}">
                                 {% if request.user in chirp.likes.all %}
                                     Unlike Chirp
