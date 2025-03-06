@@ -7,7 +7,7 @@ from .models import Profile
 
 class ChirpForm(ModelForm):
     """Provide a visual chirp component for the user that connects to the database."""
-
+    
     class Meta:
         model = Chirp
         fields = ["user","content","parent","likes",

@@ -80,15 +80,17 @@
                         <!-- Dropdown comment section -->
                         <div class="dropdown">
                             <!-- Comment Form -->
-                            <form class="comment-form" method="POST" action="{% url 'home' %}">
+                            <form class="comment-form" method="POST" action="{% url 'add_comment' chirp.id %}">
                                 {% csrf_token %}
                                 <textarea name="content" class="comment-input" placeholder="Write a comment..." rows="3"></textarea>
                                 <button type="submit" class="comment-button">Post Comment</button>
+                                <input type="checkbox" parent="{{ chirp.id }}" class="toggle-checkbox">
+
                             </form>
 
                             <!-- Display Comments -->
                             <div class="comment-section">
-                                {% for comment in chirps %}
+                                {% for comment in chirp.replies.all %}
                                     {% if comment.parent == chirp %}  <!-- Show only replies (comments) -->
                                         <div class="comment">
                                             <span class="comment-user">{{ comment.user.username }}</span>
