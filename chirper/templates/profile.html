@@ -19,8 +19,8 @@
                 <img class="logo" src="{% static 'logo.png' %}" alt="logo" height="50px" width="75px">
             </a>
             <ul>
-                 <!-- <li><a href="/search.html">Search</a></li>   -->
-                <li><a href='{% url "about" %}'>About</a></li>
+                 <!-- <li><a href="/search.html">Search</a></li> 
+                <li><a href='{% url "about" %}'>About</a></li> -->
                 <li><a>Settings<i class="fas fa-caret-down"></i></a>
 
                     <div class="dropdown-menu">
@@ -36,7 +36,7 @@
         </div>
 
         <div class="card">
-            <h1>Welcome, {{ user.username }} !</h1>  <!-- Shows the logged-in user's username -->
+            <p>Welcome, {{ user.username }} !</p>  <!-- Shows the logged-in user's username -->
 
             <p>Email: {{ user.email }}</p>  <!-- If you want to show the user's email -->
           
