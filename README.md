@@ -33,6 +33,6 @@ If you have an issue with your code just submit an issue and we will try to fix 
 - Isaac Dawson: isaac.dawson@student.cune.edu
 
 # Work Distribution
-- Ethan L'Heureux: Wrote the entire front end html and some of the form stuff to help work on comments. Did all the buttons on the front end and wrote some views.
+- Ethan L'Heureux: Wrote the entire front end html, css and some of the form stuff to help work on comments. Did all the buttons on the front end and wrote the views and urls.
 - Noah Leeper: Wrote backend models tried to help figure out how the database stores comments and also the README.
 - Isaac Dawson: Wrote some forms
