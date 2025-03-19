@@ -1,3 +1,12 @@
+/* 
+File Name: styles2.css
+Author: Ethan L'Heureux
+
+CSS page for all templates besides profile template.
+*/
+
+
+/*__________Main body coloring_________________*/
 :root {
   --color-primary: #0073ff;
   --color-white: #ffffff;
@@ -19,7 +28,7 @@ p {
   color: black; 
 }
 
-/*___________________________________________________*/
+/*____________Nav-bar styling___________________*/
 .logo {
   color: var(--color-black);
   display: flex;
@@ -88,7 +97,7 @@ button:hover {
   padding-top: 3px;
 }
 
-/* dropdown menu style */
+/* _________dropdown menu style______________*/
 .dropdown-menu {
   display: none;
 }
@@ -112,7 +121,7 @@ button:hover {
 }
 
 
-/*_________________________________________________*/
+/*__________________Chirp post-and-comment styling____________________*/
 
 .container {
   display:flex;
@@ -241,7 +250,7 @@ button:hover {
 
 
 
-
+/*__________ commenting-only styling aswell __________*/
 
 selectable {
   color: blue;
